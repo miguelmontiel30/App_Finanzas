@@ -8,7 +8,13 @@ import {
 } from './../elements/Header'
 import BtnRegresar from '../elements/BtnRegresar';
 
+import { useAuth } from '../contexts/AuthContext'
+
 const ListaDeGastos = () => {
+
+    const { usuario } = useAuth();
+    console.log(usuario);
+
     return (
         <>
             <Helmet>

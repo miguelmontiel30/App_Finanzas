@@ -20,6 +20,10 @@ import ListaDeGastos from './components/ListaDeGastos';
 import GastosPorCategoria from './components/GastosPorCategoria';
 import EditarGasto from './components/EditarGasto';
 
+//Importamos EL PROVEEDOR DEL CONTEXTO
+import { AuthProvider } from './contexts/AuthContext'
+
+
 WebFont.load({
   google: {
     families: ['Roboto', 'sans-serif']
@@ -29,24 +33,26 @@ WebFont.load({
 const Index = () => {
   return (
     <>
-    
+
       <Helmet>
         <link rel="shortcut icon" href={favicon} type='image/x-icon'></link>
         <title>App Finanzas</title>
       </Helmet>
 
-      <BrowserRouter>
-        <Contenedor>
-          <Switch>
-            <Route path='/login' component={Login} />
-            <Route path='/registro-usuario' component={RegistroUsuarios} />
-            <Route path='/categorias' component={GastosPorCategoria} />
-            <Route path='/lista' component={ListaDeGastos} />
-            <Route path='/editar/:id_gasto' component={EditarGasto} />
-            <Route path='/' exact component={App} />
-          </Switch>
-        </Contenedor>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Contenedor>
+            <Switch>
+              <Route path='/login' component={Login} />
+              <Route path='/registro-usuario' component={RegistroUsuarios} />
+              <Route path='/categorias' component={GastosPorCategoria} />
+              <Route path='/lista' component={ListaDeGastos} />
+              <Route path='/editar/:id_gasto' component={EditarGasto} />
+              <Route path='/' exact component={App} />
+            </Switch>
+          </Contenedor>
+        </BrowserRouter>
+      </AuthProvider>
 
       <Fondo />
     </>
