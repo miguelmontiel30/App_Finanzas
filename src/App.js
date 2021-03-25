@@ -1,6 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet'
 
+//COMPONENTS
+import BotonCerrarSesion from './components/BotonCerrarSesion';
+
 //STYLE COMPONENTS
 import Boton from './elements/Boton';
 import {
@@ -27,7 +30,7 @@ function App() {
           <ContenedorBotones>
             <Boton to='/categorias'>Categorias</Boton>
             <Boton to='/lista'>Lista de Gastos</Boton>
-            <Boton to='/'>Cerrar Sesión</Boton>
+            <BotonCerrarSesion to='/'/>
           </ContenedorBotones>
 
         </ContenedorHeader>

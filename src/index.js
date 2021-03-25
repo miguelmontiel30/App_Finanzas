@@ -22,6 +22,7 @@ import EditarGasto from './components/EditarGasto';
 
 //Importamos EL PROVEEDOR DEL CONTEXTO
 import { AuthProvider } from './contexts/AuthContext'
+import RutaPrivada from './components/RutaPrivada';
 
 
 WebFont.load({
@@ -43,12 +44,27 @@ const Index = () => {
         <BrowserRouter>
           <Contenedor>
             <Switch>
+
+              //RUTAS NO PROTEGIDAS (PARA QUE CREEN SU CUENTA O INICIEN SESION)
               <Route path='/login' component={Login} />
               <Route path='/registro-usuario' component={RegistroUsuarios} />
-              <Route path='/categorias' component={GastosPorCategoria} />
-              <Route path='/lista' component={ListaDeGastos} />
-              <Route path='/editar/:id_gasto' component={EditarGasto} />
-              <Route path='/' exact component={App} />
+
+              <RutaPrivada path='/categorias'>
+                <GastosPorCategoria />
+              </RutaPrivada>
+
+              <RutaPrivada path='/lista'>
+                <ListaDeGastos />
+              </RutaPrivada>
+
+              <RutaPrivada path='/editar/:id_gasto'>
+                <EditarGasto />
+              </RutaPrivada>
+
+              <RutaPrivada path='/'>
+                <App />
+              </RutaPrivada>
+
             </Switch>
           </Contenedor>
         </BrowserRouter>

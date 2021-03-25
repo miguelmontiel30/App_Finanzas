@@ -2,13 +2,11 @@ import React from 'react';
 import { Helmet } from "react-helmet";
 
 //STYLED COMPONENTS
-import {
-    Header,
-    Titulo
-} from './../elements/Header'
+import { Header, Titulo } from './../elements/Header'
 import BtnRegresar from '../elements/BtnRegresar';
 
 import { useAuth } from '../contexts/AuthContext'
+import FormularioGasto from './FormularioGasto';
 
 const ListaDeGastos = () => {
 
@@ -27,6 +25,8 @@ const ListaDeGastos = () => {
                 <Titulo>Lista de Gastos</Titulo>
 
             </Header>
+
+            <FormularioGasto />
 
         </>
     )
