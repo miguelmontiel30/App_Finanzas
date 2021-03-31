@@ -45,7 +45,7 @@ const Index = () => {
           <Contenedor>
             <Switch>
 
-              //RUTAS NO PROTEGIDAS (PARA QUE CREEN SU CUENTA O INICIEN SESION)
+              [//RUTAS NO PROTEGIDAS (PARA QUE CREEN SU CUENTA O INICIEN SESION)]
               <Route path='/login' component={Login} />
               <Route path='/registro-usuario' component={RegistroUsuarios} />
 

@@ -11,7 +11,7 @@ const RutaPrivada = ({ children, ...propiedadesDeRuta }) => {
     //EL SISTEMA
     const {usuario} = useAuth();
 
-    console.log(usuario);
+    // console.log(usuario);
     
     //SI EL USUARIO TIENE UNA SESION ACTIVA 
     if (usuario) {

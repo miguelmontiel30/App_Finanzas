@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 
 //COMPONENTS
 import BotonCerrarSesion from './components/BotonCerrarSesion';
+import FormularioGasto from './components/FormularioGasto';
 
 //STYLE COMPONENTS
 import Boton from './elements/Boton';
@@ -30,13 +31,15 @@ function App() {
           <ContenedorBotones>
             <Boton to='/categorias'>Categorias</Boton>
             <Boton to='/lista'>Lista de Gastos</Boton>
-            <BotonCerrarSesion to='/'/>
+            <BotonCerrarSesion to='/' />
           </ContenedorBotones>
 
         </ContenedorHeader>
 
+
       </Header>
 
+      <FormularioGasto />
     </>
   );
 }
