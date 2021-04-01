@@ -25,7 +25,6 @@ import InsertGastos from '../firebase/InsertGastos';
 import { useAuth } from './../contexts/AuthContext'
 
 
-
 const FormularioGasto = () => {
 
     //STATE PARA LAS ALERTAS EN EL REGISTRO DE USUARIOS
@@ -52,7 +51,7 @@ const FormularioGasto = () => {
 
     const handleDescripcion = (descripcion_input) => {
         setDescripcion(descripcion_input);
-        console.log(descripcion_input);
+        // console.log(descripcion_input);
     }
 
     const handleCantidad = (cantidad_input) => {

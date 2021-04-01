@@ -16,7 +16,7 @@ const IconoCategorias = ({ id_icono }) => {
             return <IconoComida/>;            
         case 'cuentas y pagos':
             return <IconoCuentasYPagos/>;
-        case 'hogar':
+        case 'Hogar':
             return <IconoHogar/>;
         case 'transporte':
             return <IconoTransporte/>;
