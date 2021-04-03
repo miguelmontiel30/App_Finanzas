@@ -27,7 +27,7 @@ const EditarGasto = () => {
     // Y COMO PARAMETRO LE ENVIAMOS EL GASTO QUE RECIBIMOS DE LA URL
     const [gasto] = useObtenerGasto({id_gasto});
 
-    console.log(gasto.descripcion);
+    // console.log(gasto);
 
     return (
         <>
@@ -37,12 +37,12 @@ const EditarGasto = () => {
 
             <Header>
 
-                <BtnRegresar />
+                <BtnRegresar ruta='/lista' />
                 <Titulo>Editar Gasto</Titulo>
 
             </Header>
 
-            <FormularioGasto />
+            <FormularioGasto gasto={gasto} />
 
             <BarraTotalGastado />
 
