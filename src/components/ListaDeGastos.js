@@ -13,8 +13,6 @@ import Boton from '../elements/Boton';
 import {
     Lista,
     ElementoLista,
-    ListaDeCategorias,
-    ElementoListaCategorias,
     Categoria,
     Descripcion,
     Valor,
@@ -44,9 +42,9 @@ import ConvertirFecha from '../functios/ConvertirFecha';
 
 const ListaDeGastos = () => {
 
-    const [gastos] = useObtenerGastos();
+    const [gastos, hayMasPorCargar, cargarMasGastos] = useObtenerGastos();
 
-    // console.log(gastos);
+    // console.log(hayMasPorCargar);
 
     // const { usuario } = useAuth();
     // console.log(usuario);
@@ -58,7 +56,7 @@ const ListaDeGastos = () => {
 
             // console.log(ConvertirFecha(fechaActual), ConvertirFecha(fechaAnterior));
 
-            if (ConvertirFecha(fechaActual) == ConvertirFecha(fechaAnterior)) {
+            if (ConvertirFecha(fechaActual) === ConvertirFecha(fechaAnterior)) {
                 // console.log(true);
                 return true;
             } else {
@@ -117,7 +115,7 @@ const ListaDeGastos = () => {
                                         <BotonAccion as={Link} to={`/editar/${gasto.id_gasto}`}>
                                             <IconoEditar />
                                         </BotonAccion>
-                                        <BotonAccion>
+                                        <BotonAccion onClick={() => borrarGasto(gasto.id_gasto)}>
                                             <IconoBorrar />
                                         </BotonAccion>
                                     </ContenedorBotones>
@@ -129,11 +127,14 @@ const ListaDeGastos = () => {
                 }
             </Lista>
 
-            <ContenedorBotonCentral>
-                <BotonCargarMas>
-                    Cargar Más
-                </BotonCargarMas>
-            </ContenedorBotonCentral>
+            {
+                hayMasPorCargar &&
+                <ContenedorBotonCentral>
+                    <BotonCargarMas onClick={() => cargarMasGastos()}>
+                        Cargar Más
+                    </BotonCargarMas>
+                </ContenedorBotonCentral>
+            }
 
 
             {

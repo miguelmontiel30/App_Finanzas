@@ -6,7 +6,7 @@ const InsertGastos = (
     return db.collection('gastos').add({
         descripcion: descripcion,
         cantidad: cantidad,
-        categoria: categoria,
+        categoria: Number(categoria),
         fecha: fecha,
         id_usuario: id_usuario
     });
