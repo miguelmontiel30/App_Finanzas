@@ -75,21 +75,22 @@ const useObtenerGastos = () => {
                         // CUANDO QUERAMOS CARGAR LOS DEMÁS DATOS CON EL BOTON
                         setUltimoGasto(snapshot.docs[snapshot.docs.length - 1])
 
-                        // SETEAMOS LOS GASTOS AL ESTADO PARA MOSTRARLOS EN LA VISTA
-                        setGastos(
-                            // RECORREMOS TODOS LOS GASTOS DEVUELTOS DEL SNAPSHOT
-                            snapshot.docs.map((gasto) => {
-                                // console.log(gasto.data());
-
-                                // DEVOLVEMOS LA DATA QUE NOS TRAE EL GASTO Y SETAMOS UN ID
-                                return { ...gasto.data(), id_gasto: gasto.id }
-                            })
-
-                        );
-
                     } else { //SI NO HAY MAS REGISTROS POR CARGAR ENTONCES SETEA EL ESTADO A FALSE
                         setHayMasPorCargar(false);
                     }
+
+                    // SETEAMOS LOS GASTOS AL ESTADO PARA MOSTRARLOS EN LA VISTA
+                    // ESTE ARRAY CAMBIA CADA QUE HAY UN CAMBIO EN LA BD
+                    setGastos(
+                        // RECORREMOS TODOS LOS GASTOS DEVUELTOS DEL SNAPSHOT
+                        snapshot.docs.map((gasto) => {
+                            // console.log(gasto.data());
+
+                            // DEVOLVEMOS LA DATA QUE NOS TRAE EL GASTO Y SETAMOS UN ID
+                            return { ...gasto.data(), id_gasto: gasto.id }
+                        })
+
+                    );
 
                 }
             );

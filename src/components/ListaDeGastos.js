@@ -38,13 +38,16 @@ import IconoCategorias from './../elements/IconoCategorias'
 import ConvertirMoneda from '../functios/ConvertirMoneda';
 import ConvertirFecha from '../functios/ConvertirFecha';
 
+//OPERACIONES CON LA BD
+import borrarGasto from '../firebase/borrarGasto';
+
 // import { useAuth } from '../contexts/AuthContext';
 
 const ListaDeGastos = () => {
 
     const [gastos, hayMasPorCargar, cargarMasGastos] = useObtenerGastos();
 
-    // console.log(hayMasPorCargar);
+    // console.log(gastos);
 
     // const { usuario } = useAuth();
     // console.log(usuario);
@@ -82,16 +85,13 @@ const ListaDeGastos = () => {
             <Lista>
                 {
                     gastos.map((gasto, index) => {
-                        // console.log(gasto);
+                        console.log(gasto);
                         return (
-
                             <div key={gasto.id_gasto}>
 
                                 {
                                     // COMPRUEBA DE QUE LAS FECHAS NO SEAN IGUALES
-                                    agruparPorFecha(gastos, index, gasto.fecha)
-                                        ? <></> //SON IGUALES NO DEVULVE NADA
-                                        :
+                                    !agruparPorFecha(gastos, index, gasto.fecha) &&                                        
                                         //SI NO SON IGUALES RENDERIZA EL COMPONENTE FECHA
                                         <Fecha>{ConvertirFecha(gasto.fecha)}</Fecha>
                                 }
@@ -127,6 +127,7 @@ const ListaDeGastos = () => {
                 }
             </Lista>
 
+
             {
                 hayMasPorCargar &&
                 <ContenedorBotonCentral>
@@ -135,7 +136,6 @@ const ListaDeGastos = () => {
                     </BotonCargarMas>
                 </ContenedorBotonCentral>
             }
-
 
             {
                 // EN CASO DE QUE NO HAYA GASTOS VAMOS A MOSTRAR UNA LEYENDA
