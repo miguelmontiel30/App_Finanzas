@@ -13,7 +13,6 @@ import Alert from '../elements/Alert';
 //COMPONENTS
 import SelectCategorias from './SelectCategorias';
 import SelectDayPicker from './SelectDayPicker';
-import BarraTotalGastado from './BarraTotalGastado';
 
 //PARA CONVERTIR EL TIEMPO EN DECIMALES
 import getUnixTime from 'date-fns/getUnixTime'
@@ -176,8 +175,6 @@ const FormularioGasto = () => {
                 />
 
             </Formulario>
-
-            <BarraTotalGastado />
         </>
 
     )

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 //COMPONENTS
 import BotonCerrarSesion from './components/BotonCerrarSesion';
 import FormularioGasto from './components/FormularioGasto';
+import BarraTotalGastado from './components/BarraTotalGastado';
 
 //STYLE COMPONENTS
 import Boton from './elements/Boton';
@@ -40,6 +41,8 @@ function App() {
       </Header>
 
       <FormularioGasto />
+
+      <BarraTotalGastado />
     </>
   );
 }

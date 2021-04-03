@@ -85,7 +85,7 @@ const ListaDeGastos = () => {
             <Lista>
                 {
                     gastos.map((gasto, index) => {
-                        console.log(gasto);
+                        // console.log(gasto);
                         return (
                             <div key={gasto.id_gasto}>
 
