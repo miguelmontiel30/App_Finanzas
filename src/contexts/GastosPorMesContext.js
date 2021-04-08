@@ -23,7 +23,7 @@ const TotalGastadoProvider = ({ children }) => {
 
         gastos.map((gasto) => {
             // console.log(gasto);
-            total_gastos += Number(gasto.cantidad);
+            return total_gastos += Number(gasto.cantidad);
         })
         // console.log(gastos);
 

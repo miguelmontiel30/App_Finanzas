@@ -106,7 +106,7 @@ const useObtenerGastosMes = () => {
         //NOS DESCONECTAMOS DE LA SESION DE LA BD CUANDO SE DESMONTA EL COMPONENTE
         return unsuscribe;
 
-    }, [usuario])
+    }, [usuario, fechaInicio, fechaFin])
 
     return [gastos, hayMasPorCargar, cargarMasGastos];
 }

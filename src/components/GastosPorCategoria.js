@@ -44,8 +44,11 @@ import useObtenerGastosMes from './../hooks/useObtenerGastosMes'
 
 //OPERACIONES CON LA BD
 import borrarGasto from '../firebase/borrarGasto';
+import useObtenerGastosDelMesPorCategoria from '../hooks/useObtenerGastosDelMesPorCategoria';
 
 const GastosPorCategoria = () => {
+
+    useObtenerGastosDelMesPorCategoria();
 
     const [gastos, hayMasPorCargar, cargarMasGastos] = useObtenerGastosMes();
     // console.log(gastos);
