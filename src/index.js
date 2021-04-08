@@ -22,6 +22,9 @@ import EditarGasto from './components/EditarGasto';
 
 //Importamos EL PROVEEDOR DEL CONTEXTO
 import { AuthProvider } from './contexts/AuthContext'
+import { TotalGastadoProvider } from './contexts/GastosPorMesContext'
+
+// COMPONENTE PARA LAS RUTAS PRIVADAS
 import RutaPrivada from './components/RutaPrivada';
 
 
@@ -41,33 +44,35 @@ const Index = () => {
       </Helmet>
 
       <AuthProvider>
-        <BrowserRouter>
-          <Contenedor>
-            <Switch>
+        <TotalGastadoProvider>
+          <BrowserRouter>
+            <Contenedor>
+              <Switch>
 
-              [//RUTAS NO PROTEGIDAS (PARA QUE CREEN SU CUENTA O INICIEN SESION)]
+                [//RUTAS NO PROTEGIDAS (PARA QUE CREEN SU CUENTA O INICIEN SESION)]
               <Route path='/login' component={Login} />
-              <Route path='/registro-usuario' component={RegistroUsuarios} />
+                <Route path='/registro-usuario' component={RegistroUsuarios} />
 
-              <RutaPrivada path='/categorias'>
-                <GastosPorCategoria />
-              </RutaPrivada>
+                <RutaPrivada path='/categorias'>
+                  <GastosPorCategoria />
+                </RutaPrivada>
 
-              <RutaPrivada path='/lista'>
-                <ListaDeGastos />
-              </RutaPrivada>
+                <RutaPrivada path='/lista'>
+                  <ListaDeGastos />
+                </RutaPrivada>
 
-              <RutaPrivada path='/editar/:id_gasto'>
-                <EditarGasto />
-              </RutaPrivada>
+                <RutaPrivada path='/editar/:id_gasto'>
+                  <EditarGasto />
+                </RutaPrivada>
 
-              <RutaPrivada path='/'>
-                <App />
-              </RutaPrivada>
+                <RutaPrivada path='/'>
+                  <App />
+                </RutaPrivada>
 
-            </Switch>
-          </Contenedor>
-        </BrowserRouter>
+              </Switch>
+            </Contenedor>
+          </BrowserRouter>
+        </TotalGastadoProvider>
       </AuthProvider>
 
       <Fondo />
